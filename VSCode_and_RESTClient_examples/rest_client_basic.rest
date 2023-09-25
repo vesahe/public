@@ -1,0 +1,19 @@
+# Comments for requests
+# You can comment out query string parameters
+GET https://rata.digitraffic.fi/infra-api/0.7/laiturit.json
+  ?srsName=crs:84
+  &propertyName=tunniste,objektinVoimassaoloaika
+  #&otherParameter=value
+Content-Type: application/json
+
+
+### Three #s separate requests
+https://rata.digitraffic.fi/infra-api/0.7/rautatieliikennepaikat.json
+  ?cql_filter=start(objektinVoimassaoloaika)>=start(time)+AND+start(objektinVoimassaoloaika)<end(time)
+  &propertyName=tunniste,objektinVoimassaoloaika
+  &duration=-P1Y
+Authorization: foo:bar
+
+# Username:password automatically encoded when sending request
+
+# Install extension cscode-base64 to base64 encode/decode with a couple of keyboard strokes!

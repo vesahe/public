@@ -1,0 +1,46 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "redhat.telemetry.enabled": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "workbench.iconTheme": "vscode-icons",
+    "bracket-pair-colorizer-2.depreciation-notice": false,
+    "git.confirmSync": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "azureResourceManagerTools.parameterFiles": {
+        "/Users/anyone/work/cllient/project/Connections/Connections.json": "Connections.parameters.dev.json",
+        "/Users/anyone/work/client/project/LogicApps/la.json": "la.parameters.dev.json"
+    },
+    "vsicons.dontShowNewVersionMessage": true,
+    "azureFunctions.showProjectWarning": false,
+    "rest-client.environmentVariables": {
+        "$shared": {
+            "foo": "bar"
+        },
+        "CUSTOMER1": {
+            "localMuleRestUsername": "***",
+            "localMuleRestPassword": "***",
+            "basicAuth": "***"
+        },
+        "PROJECT2_TEST": {
+            "baz": "{{$shared foo}}",
+            "serviceInstance": "App185_Test",
+            "cxmlOauthClientId": "***",
+            "cxmlOauthSecret": "***"
+        },
+        "PROJECT2_PROD": {
+            "baz": "xyzzy",
+            "serviceInstance": "App185"
+        }
+    },
+    "editor.largeFileOptimizations": false
+}

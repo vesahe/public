@@ -1,0 +1,47 @@
+
+
+### SECRETS FROM SETTINGS FILE
+#
+# Command Palette (cmd-shift-P) -> Preferences: Open User Settings (JSON)
+# -> add section "rest-client.environmentVariables": {}
+#
+GET https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts/1.0.0/taustakartta/default/ETRS-TM35FIN/12/2830/1755.png
+Authorization: Basic {{basicAuth}}
+
+
+### GET AUTH TOKEN
+#
+# set name of the request for future reference
+# @name login
+POST https://auth-stage.example.com/oauth2/v1/token
+Content-Type:application/x-www-form-urlencoded
+
+client_id={{cxmlOauthClientId}}
+&client_secret={{cxmlOauthSecret}}
+&scope=openid
+&audience=https://wd-stg.example.com/warpcxmlinterfaceapi/
+&grant_type=client_credentials
+
+
+### ASSIGN TOKEN TO VARIABLE
+@authToken = {{login.response.body.$.access_token}}
+
+### ENVIRONMENT SPECIFIC PARAMETERS
+
+#@baseUrl = https://akamai-apigateway-stg-warpcxml.example.com
+#@baseUrl = https://akamai-apigateway-prod-warpcxml.example.com
+
+# environment-specific url using settings
+@baseUrl = https://{{serviceInstance}}.example.com
+
+### SEND INVOICE
+#
+# using auth token retrieved earlier
+#
+# and payload from another file 
+#
+POST {{baseUrl}}/warpcxmlinterfaceapi/invoice
+Authorization: Bearer {{authToken}}
+Content-Type: application/xml
+
+< ./create_invoice_example.xml

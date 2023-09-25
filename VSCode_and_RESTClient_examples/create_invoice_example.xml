@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!DOCTYPE cXML SYSTEM "http://xml.cXML.org/schemas/cXML/1.2.025/InvoiceDetail.dtd">
+<cXML>
+    <Header>
+        <From>
+            <Credential domain="ID" deploymentMode="production">
+                <Identity>10427</Identity>
+            </Credential>
+        </From>
+    </Header>
+    <Request>
+        <InvoiceDetailRequest>
+            <InvoiceDetailRequestHeader invoiceID="emea_cxml_test_1000" operation="new" invoiceDate="2022-03-16" documentID="DocumentID" purpose="standard">
+                <InvoiceDetailHeaderIndicator/>
+                <InvoiceDetailLineIndicator/>
+                <InvoicePartner>
+                    <Contact role="billTo">
+                        <Name>Name</Name>
+                        <PostalAddress>
+                            <Street>Street</Street>
+                            <City>Amsterdam Zuidoost</City>
+                            <PostalCode>1101 EN</PostalCode>
+                            <Country isoCountryCode="NL">The Netherlands</Country>
+                        </PostalAddress>
+                    </Contact>
+                    <IdReference identifier="{{{TESLA VAT ID}}}" domain="vatID"></IdReference>
+                </InvoicePartner>
+                <InvoicePartner>
+                    <Contact role="remitTo">
+                        <Name>[[[VENDOR NAME]]]</Name>
+                        <PostalAddress>
+                            <Street>[[[ADDRESS]]]</Street>
+                            <City>[[[CITY]]]</City>
+                            <State isoStateCode="">[[[STATECODE]]]</State>
+                            <PostalCode>[[[POSTALCODE]]]</PostalCode>
+                            <Country isoCountryCode="XX">[[[COUNTRY]]]</Country>
+                        </PostalAddress>
+                        <Extrinsic name="address2"></Extrinsic>
+                    </Contact>
+                    <IdReference identifier="{{{VENDOR VAT ID}}}" domain="vatID"></IdReference>
+                </InvoicePartner>
+                <InvoiceDetailShipping>
+                    <PackingSlip>emea_cxml_test</PackingSlip>
+                </InvoiceDetailShipping>
+                <PaymentTerm payInNumberOfDays="30"></PaymentTerm>
+                <Extrinsic name="taxPointDate">20220125</Extrinsic>
+                <Comments>ExecutiveDirectortest,CompanyDirectortest,RegistrationCourttes, CourtRegistrationNumbertest, CompanyRegistrationIDtest, TaxNumbertest,RegisteredCountrytest, SharedCapitaltest</Comments>
+            </InvoiceDetailRequestHeader>
+            <InvoiceDetailOrder>
+                <InvoiceDetailOrderInfo>
+                    <OrderReference orderID="PONUMBER" >
+                        <DocumentReference payloadID="DocumentID"></DocumentReference>
+                    </OrderReference>
+                </InvoiceDetailOrderInfo>
+                <InvoiceDetailItem invoiceLineNumber="1" quantity="6">
+                    <UnitOfMeasure>EA</UnitOfMeasure>
+                    <UnitPrice>
+                        <Money currency="EUR">359.86</Money>
+                    </UnitPrice>
+                    <Tax>
+                        <Money currency="EUR">410.03</Money>
+                        <Description>G1-19% Standard Rated Domestic Sale</Description>
+                        <TaxCode>G1</TaxCode>
+                        <TaxDetail category="vat" percentageRate ="19"></TaxDetail>
+                    </Tax>
+                    <InvoiceDetailItemReference lineNumber="10">
+                        <Description></Description>
+                        <ItemID>
+                            <SupplierPartID>1100W AC PWR SUP FRONT TO BACK PWR AIRFLOW FOR EX4300</SupplierPartID>
+                        </ItemID>
+                    </InvoiceDetailItemReference>
+                    <SubtotalAmount>
+                        <Money currency="EUR">2159.16</Money>
+                    </SubtotalAmount>
+                </InvoiceDetailItem>
+                <InvoiceDetailItem invoiceLineNumber="2" quantity="1">
+                    <UnitOfMeasure>EA</UnitOfMeasure>
+                    <UnitPrice>
+                        <Money currency="EUR">651.33</Money>
+                    </UnitPrice>
+                    <Tax>
+                        <Money currency="EUR">0</Money>
+                        <Description>EG-0% Imports from EU countries</Description>
+                        <TaxCode>EG</TaxCode>
+                        <TaxDetail category="vat" percentageRate ="0"></TaxDetail>
+                        <TaxExemption>
+                            <ExemptReason>intra-community supply of goods</ExemptReason>
+                        </TaxExemption>
+                    </Tax>
+                    <InvoiceDetailItemReference lineNumber="20">
+                        <Description></Description>
+                        <ItemID>
+                            <SupplierPartID>Shipping</SupplierPartID>
+                        </ItemID>
+                    </InvoiceDetailItemReference>
+                    <SubtotalAmount>
+                        <Money currency="EUR">651.33</Money>
+                    </SubtotalAmount>
+                </InvoiceDetailItem>
+            </InvoiceDetailOrder>
+            <InvoiceDetailSummary>
+                <Tax>
+                    <Money currency="EUR">410.03</Money>
+                </Tax>
+                <GrossAmount>
+                    <Money currency="EUR">3220.52</Money>
+                </GrossAmount>
+            </InvoiceDetailSummary>
+        </InvoiceDetailRequest>
+    </Request>
+</cXML>
